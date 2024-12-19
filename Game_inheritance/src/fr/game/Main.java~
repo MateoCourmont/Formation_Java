@@ -59,7 +59,7 @@ public class Main {
         for(Equipment equipment : goulteck.equipments) {
             if (equipment instanceof Weapon) {
                 Weapon weapon = (Weapon) equipment;
-                System.out.println("Damages of " + weapon.name + " are " + weapon.getDamage());
+                System.out.println("Les dégats de " + weapon.name + " sont de " + weapon.getDamage());
             }
         }
     }

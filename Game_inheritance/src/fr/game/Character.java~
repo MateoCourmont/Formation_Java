@@ -25,6 +25,6 @@ public class Character
      */
     void equippedItem(Equipment equipment){
         equipments.add(equipment);
-        System.out.println("Equipped item : " + equipment.name);
+        System.out.println("Equipped item" + equipment.name);
     }
 }

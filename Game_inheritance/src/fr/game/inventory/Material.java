@@ -1,4 +1,6 @@
 package fr.game.inventory;
 
-public class Material {
+public class Material extends Item
+{
+
 }

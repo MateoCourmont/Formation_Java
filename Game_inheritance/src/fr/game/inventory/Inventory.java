@@ -1,5 +1,5 @@
-package fr.game;
-
+package fr.game.inventory;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Inventory
@@ -7,5 +7,5 @@ public class Inventory
     /**
      * Liste des items dans l'inventaire
      */
-    List<Item> items;
+    public List<Item> items = new ArrayList<>();
 }
