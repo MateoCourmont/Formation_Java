@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Game_inheritance/Game_inheritance.iml" filepath="$PROJECT_DIR$/Game_inheritance/Game_inheritance.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Graphic_programming/Graphic_programming.iml" filepath="$PROJECT_DIR$/Graphic_programming/Graphic_programming.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Inventory_JavaSwing/Inventory_JavaSwing.iml" filepath="$PROJECT_DIR$/Inventory_JavaSwing/Inventory_JavaSwing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Inventory_Step2/Inventory_Step2.iml" filepath="$PROJECT_DIR$/Inventory_Step2/Inventory_Step2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RPG_Game/RPG_Game.iml" filepath="$PROJECT_DIR$/RPG_Game/RPG_Game.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Solutions_Java.iml" filepath="$PROJECT_DIR$/.idea/Solutions_Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TBS_Game_No_OOP/TBS_Game_No_OOP.iml" filepath="$PROJECT_DIR$/TBS_Game_No_OOP/TBS_Game_No_OOP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TP_Entreprise/TP_Entreprise.iml" filepath="$PROJECT_DIR$/TP_Entreprise/TP_Entreprise.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TP_Moyenne/TP_Moyenne.iml" filepath="$PROJECT_DIR$/TP_Moyenne/TP_Moyenne.iml" />
+    </modules>
+  </component>
+</project>
