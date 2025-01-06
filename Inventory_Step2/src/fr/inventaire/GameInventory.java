@@ -10,8 +10,8 @@ public class GameInventory {
     private JTextField quantityField;
     private JButton addButton;
     private JButton removeButton;
-    private JList<String> inventoryList;
-    private DefaultListModel<String> listModel;
+    private JPanel inventoryGrid;
+    private DefaultListModel<String> inventoryItems;
 
     public GameInventory() {
         // Initialisation de la fenêtre principale
@@ -25,8 +25,9 @@ public class GameInventory {
         quantityField = new JTextField(5);
         addButton = new JButton("Ajouter");
         removeButton = new JButton("Supprimer");
-        listModel = new DefaultListModel<>();
-        inventoryList = new JList<>(listModel);
+        inventoryItems = new DefaultListModel<>();
+        inventoryGrid = new JPanel(new GridLayout(4, 4));
+        inventoryGrid.setBorder(BorderFactory.createTitledBorder("Inventaire"));
 
         // Création des panneaux
         JPanel inputPanel = new JPanel(new FlowLayout());
@@ -37,13 +38,9 @@ public class GameInventory {
         inputPanel.add(addButton);
         inputPanel.add(removeButton);
 
-        JPanel listPanel = new JPanel(new BorderLayout());
-        listPanel.setBorder(BorderFactory.createTitledBorder("Inventaire"));
-        listPanel.add(new JScrollPane(inventoryList), BorderLayout.CENTER);
-
         // Ajout des panneaux à la fenêtre principale
         frame.add(inputPanel, BorderLayout.NORTH);
-        frame.add(listPanel, BorderLayout.CENTER);
+        frame.add(new JScrollPane(inventoryGrid), BorderLayout.CENTER);
 
         // Ajout des ActionListeners
         addButton.addActionListener(new ActionListener() {
@@ -56,7 +53,7 @@ public class GameInventory {
         removeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                removeItem();
+                removeSelectedItem();
             }
         });
 
@@ -84,7 +81,11 @@ public class GameInventory {
             }
 
             // Ajouter l'objet à la liste
-            listModel.addElement(name + " - Quantité : " + quantity);
+            String itemText = name + " - Quantité : " + quantity;
+            JToggleButton itemButton = new JToggleButton(itemText);
+            inventoryGrid.add(itemButton);
+            inventoryGrid.revalidate();
+            inventoryGrid.repaint();
 
             // Réinitialiser les champs
             nameField.setText("");
@@ -94,17 +95,26 @@ public class GameInventory {
         }
     }
 
-    // Méthode pour supprimer un objet de l'inventaire
-    private void removeItem() {
-        int selectedIndex = inventoryList.getSelectedIndex();
+    // Méthode pour supprimer les éléments sélectionnés de l'inventaire
+    private void removeSelectedItem() {
+        Component[] components = inventoryGrid.getComponents();
+        boolean itemRemoved = false;
 
-        // Vérifier si un élément est sélectionné
-        if (selectedIndex == -1) {
-            JOptionPane.showMessageDialog(frame, "Veuillez sélectionner un élément à supprimer.", "Erreur", JOptionPane.WARNING_MESSAGE);
-            return;
+        for (int i = components.length - 1; i >= 0; i--) {
+            if (components[i] instanceof JToggleButton button) {
+                if (button.isSelected()) {
+                    inventoryGrid.remove(button);
+                    itemRemoved = true;
+                }
+            }
         }
 
-        // Supprimer l'élément sélectionné
-        listModel.remove(selectedIndex);
+        if (!itemRemoved) {
+            JOptionPane.showMessageDialog(frame, "Aucun élément sélectionné.", "Erreur", JOptionPane.WARNING_MESSAGE);
+        }
+
+        inventoryGrid.revalidate();
+        inventoryGrid.repaint();
     }
 }
+
