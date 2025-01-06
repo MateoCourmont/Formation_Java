@@ -25,7 +25,7 @@ public class GameInventory {
         addButton = new JButton("Ajouter");
         removeButton = new JButton("Supprimer");
         DefaultListModel<String> inventoryItems = new DefaultListModel<>();
-        inventoryGrid = new JPanel(new GridLayout(0, 4));
+        inventoryGrid = new JPanel(new GridLayout(4, 4));
         inventoryGrid.setBorder(BorderFactory.createTitledBorder("Inventaire"));
 
         // Création des panneaux
